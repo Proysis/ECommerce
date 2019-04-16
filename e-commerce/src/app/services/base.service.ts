@@ -11,7 +11,7 @@ export class BaseService {
 
   localPath = "https://localhost:44386/api/";
   serverPath = "http://207.154.248.28:443/api/";
-  path = this.localPath;
+  path = this.serverPath;
 
   get OnlineCustomer(){
     if(sessionStorage.getItem("ONLINECUSTOMER")){
