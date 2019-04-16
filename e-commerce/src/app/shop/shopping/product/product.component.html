@@ -1,0 +1,11 @@
+<div class="row">
+    <div *ngFor="let product of products" class="card" style="width: 18rem;">
+      <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <h5 class="pull-right">{{product.price}} <i class="fa fa-usd"></i></h5>
+        <p class="card-text">{{product.description}}</p>
+        <a href="javascript:void(0)" class="btn btn-primary" (click)="AddToCart({productId:product.id, productName:product.name, productPrice:product.price})">Add To Cart</a>
+      </div>
+    </div>
+</div>

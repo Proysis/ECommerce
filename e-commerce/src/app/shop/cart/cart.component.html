@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total Price</th>
+          <th scope="col">Operation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let basketProduct of basketProducts">
+          <td>{{ basketProduct.name }}</td>
+          <td>{{ basketProduct.price }} <i class="fa fa-usd"></i></td>
+          <td>
+            <input
+              type="text"
+              name="quantity"
+              class="form-control"
+              style="width:50px;"
+              [(ngModel)]="basketProduct.quantity"
+              (ngModelChange)="RefreshCart()"
+              mask="00"
+            />
+          </td>
+          <td>{{ basketProduct.totalPrice }} <i class="fa fa-usd"></i></td>
+          <td>
+            <a
+              (click)="
+                Delete({
+                  productId: basketProduct.productId,
+                  basketId: basketProduct.basketId,
+                  quantity: basketProduct.quantity
+                })
+              "
+              matTooltip="Remove"
+              [matTooltipPosition]="'above'"
+            >
+              <i class="fa fa-times" style="color:lightcoral"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        Payment
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">
+          Total : {{ total }} <i class="fa fa-usd"></i>
+        </h5>
+        <p class="card-text">You can pay for your basket</p>
+        <a routerLink="/payment" class="btn btn-primary">Payment</a>
+      </div>
+    </div>
+  </div>
+</div>

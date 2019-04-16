@@ -1,0 +1,159 @@
+<div mat-dialog-title>
+  <div class="modal-header">
+    <h3 class="smaller lighter blue no-margin" style="display: inline-block;">
+      {{ lblOperationName }}
+    </h3>
+    <button type="button" class="close" mat-dialog-close aria-hidden="true">
+      ×
+    </button>
+  </div>
+</div>
+<mat-dialog-content>
+    <form
+      [formGroup]="addressForm"
+      (ngSubmit)="AddAddress()"
+    >
+      <div class="form-label-group">
+        <input
+          type="text"
+          id="inputCity"
+          formControlName="city"
+          class="form-control"
+          placeholder="City"
+          required
+          autofocus
+        />
+        <label for="inputCity">City</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            addressForm.get('city').hasError('required') &&
+            addressForm.get('city').dirty
+          "
+        >
+          City is required
+        </div>
+      </div>
+
+      <div class="form-label-group">
+        <input
+          type="text"
+          id="inputTown"
+          formControlName="town"
+          class="form-control"
+          placeholder="Town"
+          required
+          autofocus
+        />
+        <label for="inputTown">Town</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            addressForm.get('town').hasError('required') &&
+            addressForm.get('town').dirty
+          "
+        >
+          Town is required
+        </div>
+      </div>
+
+      <div class="form-label-group">
+        <input
+          type="text"
+          id="inputDistrict"
+          class="form-control"
+          formControlName="district"
+          placeholder="District"
+          required
+          autofocus
+        />
+        <label for="inputDistrict">District</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+          addressForm.get('district').hasError('required') &&
+          addressForm.get('district').dirty
+          "
+        >
+        District is required
+        </div>
+      </div>
+      <div class="form-label-group">
+        <input
+          type="text"
+          id="inputPhone"
+          prefix="+"
+          mask="00 (000) 000 00 00"
+          class="form-control"
+          formControlName="phoneNumbers"
+          placeholder="Phone number"
+          required
+          autofocus
+        />
+        <label for="inputPhone">Phone number</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+          addressForm.get('phoneNumbers').hasError('required') &&
+          addressForm.get('phoneNumbers').dirty
+          "
+        >
+          Phone is required
+        </div>
+      </div>
+
+      <div class="form-label-group">
+        <input
+          type="text"
+          id="inputStreet"
+          formControlName="street"
+          class="form-control"
+          placeholder="Street"
+          required
+          autofocus
+        />
+        <label for="inputStreet">Street</label>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+          addressForm.get('street').hasError('required') &&
+          addressForm.get('street').dirty
+          "
+        >
+        Street is required
+        </div>
+      </div>
+
+      <div class="form-label-group">
+        <input
+          type="text"
+          id="inputDescription"
+          formControlName="description"
+          class="form-control"
+          placeholder="Description"
+        />
+        <label for="inputDescription">Description</label>
+      </div>
+      <div class="form-group row">
+        <div class="col-2">
+          Is Custom Billing Address
+        </div>
+        <div class="col-4">
+          <input type="checkbox" formControlName="isCustomBillingAddress">
+        </div>
+        <div class="col-2">
+          Is Custom Shipping Address
+        </div>
+        <div class="col-4">
+          <input type="checkbox" formControlName="isCustomShippingAddress">
+        </div>
+      </div>
+      <button
+        class="btn btn-lg btn-primary btn-block"
+        [disabled]="addressForm.invalid"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+</mat-dialog-content>

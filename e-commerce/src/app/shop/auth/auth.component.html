@@ -1,0 +1,109 @@
+<div class="row">
+  <div class="offset-md-1 col-md-4">
+    <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="Register()">
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+      </div>
+      <div class="form-label-group">
+        <input type="email" id="inputName" formControlName="name" class="form-control" placeholder="Name" required
+          autofocus>
+        <label for="inputName">Name</label>
+        <div class="alert alert-danger"
+          *ngIf="registerForm.get('name').hasError('required') && registerForm.get('name').dirty">Name
+          is required</div>
+      </div>
+
+      <div class="form-label-group">
+        <input type="email" id="inputSurname" formControlName="surname" class="form-control" placeholder="Surname"
+          required autofocus>
+        <label for="inputSurname">Surname</label>
+        <div class="alert alert-danger"
+          *ngIf="registerForm.get('surname').hasError('required') && registerForm.get('surname').dirty">Surname
+          is required</div>
+      </div>
+
+      <div class="form-label-group">
+        <input type="email" id="inputEmail" class="form-control" formControlName="email" placeholder="Email address"
+          required autofocus>
+        <label for="inputEmail">Email address</label>
+        <div class="alert alert-danger"
+          *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').dirty">Email
+          is required</div>
+        <div class="alert alert-danger"
+          *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').dirty">Email
+          is not valid</div>
+
+      </div>
+      <div class="form-label-group">
+          <input type="text" id="inputPhone" prefix="+" mask="00 (000) 000 00 00" class="form-control" formControlName="phone" placeholder="Phone number"
+            required autofocus>
+          <label for="inputPhone">Phone number</label>
+          <div class="alert alert-danger"
+            *ngIf="registerForm.get('phone').hasError('required') && registerForm.get('phone').dirty">Phone
+            is required</div>
+  
+        </div>
+
+      <div class="form-label-group">
+        <input type="password" id="inputPassword" formControlName="password" class="form-control" placeholder="Password"
+          required autofocus>
+        <label for="inputPassword">Password</label>
+        <div class="alert alert-danger"
+          *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').dirty">Password
+          is required</div>
+      </div>
+
+      <div class="form-label-group">
+        <input type="password" id="inputPasswordConfirm" formControlName="passwordConfirm" class="form-control"
+          placeholder="Password Confirm" required>
+        <label for="inputPasswordConfirm">Password Confirm</label>
+        <div class="alert alert-danger"
+          *ngIf="registerForm.get('passwordConfirm').hasError('required') && registerForm.get('passwordConfirm').dirty">
+          Passwod confirm
+          is required</div>
+        <div class="alert alert-danger"
+          *ngIf="registerForm.get('passwordConfirm').hasError('mustMatch') && registerForm.get('passwordConfirm').dirty">
+          Passwods must match</div>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" [disabled]="registerForm.invalid" type="submit">Sign up</button>
+    </form>
+  </div>
+  <div class="offset-md-1 col-md-4">
+    <form [formGroup]="loginForm" class="form-signin" (ngSubmit)="Login()">
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+      </div>
+
+      <div class="form-label-group">
+        <input type="email" id="inputLoginEmail" class="form-control" formControlName="email"
+          placeholder="Email address" required autofocus>
+        <label for="inputLoginEmail">Email address</label>
+
+        <div class="alert alert-danger"
+          *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').dirty">Email
+          is required</div>
+        <div class="alert alert-danger"
+          *ngIf="loginForm.get('email').hasError('email') && loginForm.get('email').dirty">Email
+          is not valid</div>
+      </div>
+
+      <div class="form-label-group">
+        <input type="password" id="inputLoginPassword" class="form-control" formControlName="password"
+          placeholder="Password" required>
+        <label for="inputLoginPassword">Password</label>
+
+        <div class="alert alert-danger"
+          *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').dirty">Password
+          is required</div>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" [disabled]="loginForm.invalid" type="submit">Sign in</button>
+    </form>
+  </div>
+  <div class="col-md-1"></div>
+</div>

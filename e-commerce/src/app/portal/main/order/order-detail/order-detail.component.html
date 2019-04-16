@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-12">
+      <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Untiy Price</th>
+            <th scope="col">Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let orderDetail of orderDetails">
+            <td>{{ orderDetail.productName }}</td>
+            <td>{{ orderDetail.quantity }}</td>
+            <td>{{ orderDetail.unitPrice }}<i class="fa fa-usd"></i></td>
+            <td>{{ orderDetail.totalPrice }}<i class="fa fa-usd"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

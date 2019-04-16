@@ -1,0 +1,83 @@
+<div mat-dialog-title>
+  <div class="modal-header">
+    <h3 class="smaller lighter blue no-margin" style="display: inline-block;">
+      {{ lblOperationName }}
+    </h3>
+    <button type="button" class="close" mat-dialog-close aria-hidden="true">
+      ×
+    </button>
+  </div>
+</div>
+<mat-dialog-content>
+  <div class="modal-body">
+    <form [formGroup]="categoryUpdateForm" (ngSubmit)="Update()">
+      <div class="form-group">
+        <label for="txtName" class="sr-only">Name</label>
+        <input
+          type="text"
+          id="txtName"
+          class="form-control"
+          name="name"
+          formControlName="name"
+          placeholder="Name"
+          autofocus
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            categoryUpdateForm.get('name').hasError('required') &&
+            categoryUpdateForm.get('name').dirty
+          "
+        >
+          This area is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="txrDescription" class="sr-only">Description</label>
+        <input
+          type="text"
+          id="txrDescription"
+          class="form-control"
+          name="description"
+          formControlName="description"
+          placeholder="Description"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            categoryUpdateForm.get('description').hasError('required') &&
+            categoryUpdateForm.get('description').dirty
+          "
+        >
+          This area is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="txtImageUrl" class="sr-only">Image Url</label>
+        <input
+          type="text"
+          id="txtImageUrl"
+          class="form-control"
+          name="imageUrl"
+          formControlName="imageUrl"
+          placeholder="Image Url"
+        />
+      </div>
+      <button
+        class="btn btn-sm btn-success pull-right"
+        [disabled]="categoryUpdateForm.invalid"
+        style="margin-left:2%"
+        data-dismiss="modal"
+      >
+        <i class="fa fa-check"></i>&nbsp; Save
+      </button>
+      <button
+        mat-dialog-close
+        class="btn btn-sm red pull-right"
+        data-dismiss="modal"
+      >
+        <i class="fa fa-close"></i>&nbsp; Close
+      </button>
+    </form>
+  </div>
+</mat-dialog-content>

@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Billing Address</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                You can add custom address for billing
+              </h6>
+              <p class="card-text">
+                <textarea
+                  class="form-control"
+                  rows="4"
+                  name="billingAddress"
+                  [(ngModel)]="billingAddress"
+                ></textarea>
+              </p>
+              <a routerLink="/address" class="card-link">Add Custom Address</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Shipping Address</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                You can add custom address for shipping
+              </h6>
+              <p class="card-text">
+                <textarea
+                  class="form-control"
+                  rows="4"
+                  name="shippingAddress"
+                  [(ngModel)]="shippingAddress"
+                ></textarea>
+              </p>
+              <a routerLink="/address" class="card-link">Add Custom Address</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Payment Detail</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                Asume that you fill the credit-cards information fields and
+                cargo information fields as a customer
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header">
+          Payment
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            Total : {{ total }} <i class="fa fa-usd"></i>
+          </h5>
+          <p class="card-text">You can pay for your basket</p>
+          <button
+            class="btn btn-sm btn-success pull-right"
+            style="margin-left:2%"
+            (click)="AddOrder({basketId:basketId, shippingAddress:shippingAddress, billingAddress:billingAddress})"
+          >
+            <i class="fa fa-check"></i>&nbsp; Complete Payment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

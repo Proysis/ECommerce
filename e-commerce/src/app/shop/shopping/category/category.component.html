@@ -1,0 +1,7 @@
+
+<div class="list-group" style="margin-bottom: 10px;cursor: pointer !important;">
+    <a [ngClass]="this.categoryIds.length == 0 ? 'list-group-item custom-list active' : 'list-group-item custom-list'" href="javascript:void(0)" (click)="Filter()">All Products</a>
+  </div>
+<div class="list-group" *ngFor="let category of categories" style="cursor: pointer !important;">
+    <a [ngClass]="isActive(category.id) ? 'list-group-item custom-list active' : 'list-group-item custom-list'" href="javascript:void(0)" (click)="Filter(category.id)">{{category.name}}</a>
+</div>

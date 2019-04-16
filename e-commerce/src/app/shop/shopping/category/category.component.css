@@ -1,0 +1,9 @@
+.custom-list{
+    margin-bottom: 10px !important; 
+    color: #000;
+}
+
+.custom-list:hover{
+    background-color: #343a40 !important;
+    color: white !important;
+}

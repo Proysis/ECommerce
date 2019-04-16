@@ -1,0 +1,48 @@
+<div class="pull-right" style="margin-bottom: 10px">
+    <input
+      type="button"
+      class="btn btn-xs btn-success"
+      (click)="ShowDialog()"
+      value="Add New"
+    />
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Image Url</th>
+          <th scope="col">Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.stock }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.imageUrl }}</td>
+          <td style="text-align: center">
+            <a
+              href="javascript:void(0)"
+              (click)="ShowDialog(product.id)"
+              matTooltip="Edit"
+              [matTooltipPosition]="'above'"
+            >
+              <i class="fa fa-pencil" style="color: lightskyblue"></i> </a
+            >&nbsp;&nbsp;
+            <app-delete
+              [value]="product"
+              [className]="'Product'"
+              [serviceName]="'IProductService'"
+              (fillList)="FillList()"
+            ></app-delete>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

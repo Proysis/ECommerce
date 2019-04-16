@@ -1,0 +1,37 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Order Code</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Total Price</th>
+                        <th scope="col"> Billing Address </th>
+                        <th scope="col"> Shipping Address </th>
+                        <th scope="col">Operations</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let order of orders">
+                        <td>{{ order.orderCode }}</td>
+                        <td>{{ order.date }}</td>
+                        <td>{{order.totalPrice}}<i class="fa fa-usd"></i></td>
+                        <td>{{ order.billingAddress }}</td>
+                        <td>{{order.shippingAddress}}</td>
+                        <td><a href="javascript:void(0)" (click)="GetOrderDetails(order.id)"> Order Detail </a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+    </div>
+    <div class="col-4">
+      <app-orderDetails [orderDetails]="orderDetails"></app-orderDetails>
+    </div>
+  </div>
+    
+</div>
