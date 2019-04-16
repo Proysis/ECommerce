@@ -26,7 +26,7 @@ export class OrderComponent implements OnInit {
   }
 
   FillList() {
-    this.orderService.GetOrders(this.base.OnlineCustomer.id).subscribe(data=>{
+    this.base.GetAll("IVwOrderService").subscribe(data=>{
       this.orders = data;
     });
   }
