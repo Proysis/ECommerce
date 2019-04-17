@@ -27,4 +27,9 @@ export class MainComponent implements OnInit {
   SetTitle(title) {
     this.title = title;
   }
+
+  SingOut(){
+    sessionStorage.removeItem("ONLINEADMIN");
+    this.router.navigateByUrl("/portal/auth");
+  }
 }

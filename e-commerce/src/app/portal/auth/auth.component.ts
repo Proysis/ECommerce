@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginUser } from 'src/app/models/loginUser';
 import { AdminAuthService } from 'src/app/services/admin-auth.service';
+import { BaseService } from 'src/app/services/base.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -11,7 +13,7 @@ import { AdminAuthService } from 'src/app/services/admin-auth.service';
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private formBuilder:FormBuilder, private adminService:AdminAuthService) { }
+  constructor(private formBuilder:FormBuilder, private adminService:AdminAuthService, private base:BaseService, private router : Router) { }
 
   adminLoginForm:FormGroup;
 
@@ -25,6 +27,9 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.base.OnlineAdmin){
+      this.router.navigateByUrl("/portal/home");
+    }
     this.createAdminLoginForm();
   }
 
