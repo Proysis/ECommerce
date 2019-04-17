@@ -18,11 +18,8 @@ export class OrderComponent implements OnInit {
   orders:any = [];
   orderDetails:any=[];
   ngOnInit() {
-    if (!this.base.OnlineCustomer) {
-      this.route.navigateByUrl("/auth");
-    } else {
       this.FillList();
-    }
+    
   }
 
   FillList() {
