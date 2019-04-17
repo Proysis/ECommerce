@@ -21,6 +21,14 @@ export class BaseService {
     return null;
   }
 
+  get OnlineAdmin(){
+    if(sessionStorage.getItem("ONLINEADMIN")){
+      return JSON.parse(sessionStorage.getItem("ONLINEADMIN"));
+    }
+
+    return null;
+  }
+
   Update(value: any) {
     return this.http.post(this.path + "base/update", value);
   }
